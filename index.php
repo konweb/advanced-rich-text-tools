@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name: Advanced Rich Text Tools for Gutenberg
- * Plugin URI: https://wordpress.org/plugins/advanced-rich-text-tools/
+ * Plugin Name: Advanced Rich Text Tools for Gutenberg Add On
+ * Plugin URI: https://github.com/konweb/advanced-rich-text-tools?organization=konweb&organization=konweb
  * Description: Adds additional tools for rich text fields such as superscript and subscript.
- * Version: 1.1.0
- * Author: Ella Van Durpe
+ * Version: 1.0.0
+ * Author: Naoto Kondo
  */
 
 add_action( 'init', function() {

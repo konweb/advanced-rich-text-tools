@@ -20,7 +20,7 @@ registerFormatType(type, {
       null,
       createElement(RichTextShortcut, {
         type: 'access',
-        character: 'x',
+        character: 'u',
         onUse: onToggle
       }),
       createElement(RichTextToolbarButton, {
@@ -29,7 +29,7 @@ registerFormatType(type, {
         onClick: onToggle,
         isActive,
         shortcutType: 'access',
-        shortcutCharacter: 'x'
+        shortcutCharacter: 'u'
       })
     )
   }

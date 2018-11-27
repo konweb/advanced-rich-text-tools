@@ -1,4 +1,5 @@
 import './code'
+import './underline'
 import './colour'
-import './remove'
 import './sub-sup'
+import './remove'

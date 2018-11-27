@@ -1,8 +1,13 @@
 const { createElement } = window.wp.element
-const { registerFormatType, applyFormat, removeFormat, getActiveFormat } = window.wp.richText
-const { InspectorControls, PanelColorSettings } = window.wp.editor;
+const {
+  registerFormatType,
+  applyFormat,
+  removeFormat,
+  getActiveFormat
+} = window.wp.richText
+const { InspectorControls, PanelColorSettings } = window.wp.editor
 
-[
+;[
   {
     name: 'color',
     title: 'Inline Text Colour'
@@ -21,7 +26,7 @@ const { InspectorControls, PanelColorSettings } = window.wp.editor;
     attributes: {
       style: 'style'
     },
-    edit ({ isActive, value, onChange }) {
+    edit({ isActive, value, onChange }) {
       let activeColor
 
       if (isActive) {
@@ -31,32 +36,34 @@ const { InspectorControls, PanelColorSettings } = window.wp.editor;
         activeColor = style.replace(new RegExp(`^${name}:\\s*`), '')
       }
 
-      return (
-        createElement(InspectorControls, null,
-          createElement(PanelColorSettings, {
-            title,
-            initialOpen: true,
-            colorSettings: [
-              {
-                value: activeColor,
-                onChange: (color) => {
-                  if (color) {
-                    onChange(applyFormat(value, {
+      return createElement(
+        InspectorControls,
+        null,
+        createElement(PanelColorSettings, {
+          title,
+          initialOpen: true,
+          colorSettings: [
+            {
+              value: activeColor,
+              onChange: color => {
+                if (color) {
+                  onChange(
+                    applyFormat(value, {
                       type,
                       attributes: {
                         style: `${name}:${color}`
                       }
-                    }))
-                    return
-                  }
+                    })
+                  )
+                  return
+                }
 
-                  onChange(removeFormat(value, type))
-                },
-                label: 'Apply colour to the selected text.'
-              }
-            ]
-          })
-        )
+                onChange(removeFormat(value, type))
+              },
+              label: 'Apply colour to the selected text.'
+            }
+          ]
+        })
       )
     }
   })

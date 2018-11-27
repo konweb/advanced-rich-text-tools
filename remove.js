@@ -9,18 +9,23 @@ registerFormatType(type, {
   title: 'Remove formatting',
   tagName: 'span',
   className: 'remove',
-  edit ({ isActive, value, onChange }) {
-    return (
-      createElement(InspectorControls, null,
-        createElement(PanelBody, {
+  edit({ isActive, value, onChange }) {
+    return createElement(
+      InspectorControls,
+      null,
+      createElement(
+        PanelBody,
+        {
           title: 'Remove Formatting'
         },
-        createElement(Button, {
-          isDefault: true,
-          onClick: () => onChange({ ...value, formats: Array(value.formats.length) })
-        },
-        'Remove All formatting'
-        )
+        createElement(
+          Button,
+          {
+            isDefault: true,
+            onClick: () =>
+              onChange({ ...value, formats: Array(value.formats.length) })
+          },
+          'Remove All formatting'
         )
       )
     )

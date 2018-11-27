@@ -1,8 +1,8 @@
 const { createElement, Fragment } = window.wp.element
 const { registerFormatType, toggleFormat } = window.wp.richText
-const { RichTextToolbarButton, RichTextShortcut } = window.wp.editor;
+const { RichTextToolbarButton, RichTextShortcut } = window.wp.editor
 
-[
+;[
   {
     name: 'sup',
     title: 'Superscript',
@@ -20,25 +20,25 @@ const { RichTextToolbarButton, RichTextShortcut } = window.wp.editor;
     title,
     tagName: name,
     className: null,
-    edit ({ isActive, value, onChange }) {
+    edit({ isActive, value, onChange }) {
       const onToggle = () => onChange(toggleFormat(value, { type }))
 
-      return (
-        createElement(Fragment, null,
-          createElement(RichTextShortcut, {
-            type: 'primary',
-            character,
-            onUse: onToggle
-          }),
-          createElement(RichTextToolbarButton, {
-            title,
-            onClick: onToggle,
-            isActive,
-            shortcutType: 'primary',
-            shortcutCharacter: character,
-            className: `toolbar-button-with-text toolbar-button__advanced-${name}`
-          })
-        )
+      return createElement(
+        Fragment,
+        null,
+        createElement(RichTextShortcut, {
+          type: 'primary',
+          character,
+          onUse: onToggle
+        }),
+        createElement(RichTextToolbarButton, {
+          title,
+          onClick: onToggle,
+          isActive,
+          shortcutType: 'primary',
+          shortcutCharacter: character,
+          className: `toolbar-button-with-text toolbar-button__advanced-${name}`
+        })
       )
     }
   })

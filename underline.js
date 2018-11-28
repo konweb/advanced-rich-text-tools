@@ -9,7 +9,7 @@ const { RichTextToolbarButton, RichTextShortcut } = window.wp.editor
 const type = 'core/underline'
 
 registerFormatType(type, {
-  title: __('Underline'),
+  title: __('下線'),
   tagName: 'u',
   className: null,
   edit({ isActive, value, onChange }) {
@@ -25,7 +25,7 @@ registerFormatType(type, {
       }),
       createElement(RichTextToolbarButton, {
         icon: 'editor-underline',
-        title: __('Underline'),
+        title: __('下線'),
         onClick: onToggle,
         isActive,
         shortcutType: 'access',
